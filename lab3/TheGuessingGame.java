@@ -23,24 +23,24 @@ public class TheGuessingGame {
 
         System.out.println("Welcome to The Guessing Game");
         
+        final int tries = 3;
+        
         while (playAgain) {
-            int number = random.nextInt(10) + 1;
-            int tries = 3;
+            final int number = random.nextInt(10) + 1;
             boolean guesses = false;
             
             System.out.println("I'm thinking of a number between 1 and 10." + "\n" + "Guess what it is:");
 
-            while (tries > 0 && !guesses) {
+            for (int i = tries; i > 0 && !guesses; i--) {
                 int guess = scanner.nextInt();
                 if (guess < number) {
-                    System.out.println("Too low! Tries Left: " + (tries - 1));
+                    System.out.println("Too low! Tries Left: " + (i - 1));
                 } else if (guess > number) {
-                    System.out.println("Too high! Tries Left: " + (tries - 1));
+                    System.out.println("Too high! Tries Left: " + (i - 1));
                 } else {
                     System.out.println("You guessed it! The number was " + number + ".");
                     guesses = true;
                 }
-                tries--;
             }
 
             if (!guesses) {
