@@ -1,6 +1,6 @@
 /**
  * Description: Bank Account program that allows the user to deposit
- * and withdraw which also shows the balance and transaction history
+ * and withdraw which also shows the balance and the statement.
  * @author Henry Penas
  * @since 04/27/2023
  */
@@ -8,7 +8,7 @@
 
 /**
  * This class shows a bank account with a balance and the 
- * transaction history.
+ * statement history.
  */
 public class BankAccount {
     private int accountNumber;
@@ -45,6 +45,7 @@ public class BankAccount {
     public void deposit(double amount) {
         if (amount < 0) {
             System.out.println("Error: cannot deposit a negative amount");
+            System.out.println("***Please contact local branch for additional assistance***");
             return;
         }
         balance += amount;
@@ -62,6 +63,7 @@ public class BankAccount {
     public void withdraw(double amount) {
         if (amount < 0) {
             System.out.println("Error: cannot withdraw a negative amount");
+            System.out.println("***Please contact local branch for additional assistance***");
             return;
         }
         if (amount > balance) {
@@ -78,7 +80,7 @@ public class BankAccount {
     public void printStatement() {
         System.out.printf("Account number: %d%n", accountNumber);
         System.out.printf("Balance: $%.2f%n", balance);
-        System.out.println("Transaction history:");
+        System.out.println("Statement history:");
         System.out.print(transactionHistory.toString());
     }
 
